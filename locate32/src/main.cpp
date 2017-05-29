@@ -338,10 +338,11 @@ int main_routine(const char* pattern)
 			throw myexception("Indent [%d] is too long; than %d.", nIndent, (int)_countof(aIndentNames));
 		}
 
-		//インデント位置へのアイテム文字列記録
+		//Item string record to indent position
 		const wchar_t* tab = wcschr(pLine, '\t');
 		if(tab){
-			aIndentNames[nIndent].assign(pLine, tab);
+			aIndentNames[nIndent].
+			  assign((const wchar_t *)pLine, tab);
 		}
 		else{
 			aIndentNames[nIndent] = pLine;
